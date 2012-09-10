@@ -18,7 +18,7 @@
 
 ### memcached-client-facade
 
-`MemcachedCacheResultInterceptor` uses memcached-client-facade internally.
+MemcachedCacheResultInterceptor uses memcached-client-facade internally.
 
 Also take a look at memcached-client-facade's document:
 
@@ -47,7 +47,10 @@ https://github.com/m3dev/memcached-client-facade
 It's also possible to inject the configuration to interceptor by inheritence.
 
 ```java
-public class MyMemcachedInterceptor extends memcachedCacheResultInterceptor {
+import com.m3.methodcache.MemcachedCacheResultInterceptor;
+import com.m3.memcached.facade.Configuration;
+
+public class MyMemcachedInterceptor extends MemcachedCacheResultInterceptor {
 
   @Override
   public Configuration getConfiguration() {
@@ -93,6 +96,12 @@ String result = new DateService().getCurrentAsString("PREFIX");
 
 And thn, the returned value will be cached as "com.example::public_void_service.DateService.getCurrentAsString(String)::PREFIX" on memcached.
 
+
+### Example
+
+See also:
+
+https://github.com/m3dev/method-cache-interceptor/tree/master/sample
 
 ## License
 
