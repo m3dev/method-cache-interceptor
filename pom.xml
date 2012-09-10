@@ -4,7 +4,7 @@
 
     <groupId>com.m3</groupId>
     <artifactId>method-cache-interceptor</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>method-cache-interceptor</name>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>com.m3</groupId>
             <artifactId>memcached-client-facade</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>[1.0,)</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
