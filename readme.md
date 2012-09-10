@@ -14,7 +14,15 @@
 </dependencies>
 ```
 
-## Usage
+## Usage with Memcached
+
+### memcached-client-facade
+
+`MemcachedCacheResultInterceptor` uses memcached-client-facade internally.
+
+Also take a look at memcached-client-facade's document:
+
+https://github.com/m3dev/memcached-client-facade
 
 ### Setup for Spring Framework
 
