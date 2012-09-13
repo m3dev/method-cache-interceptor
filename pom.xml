@@ -4,7 +4,7 @@
 
     <groupId>com.m3</groupId>
     <artifactId>method-cache-interceptor</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>method-cache-interceptor</name>
