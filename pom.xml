@@ -4,7 +4,7 @@
 
     <groupId>com.m3</groupId>
     <artifactId>method-cache-interceptor</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>method-cache-interceptor</name>
@@ -92,6 +92,14 @@
                     <artifactId>slf4j-api</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.6</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- unit testing -->

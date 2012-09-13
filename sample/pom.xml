@@ -16,11 +16,11 @@
         <maven.compiler.target>1.6</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey.version>1.11</jersey.version>
-        <spring.version>3.0.7.RELEASE</spring.version>
-        <slf4j.version>1.6.4</slf4j.version>
+        <jersey.version>1.14</jersey.version>
+        <spring.version>3.1.2.RELEASE</spring.version>
+        <slf4j.version>1.6.6</slf4j.version>
         <hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
-        <joda-time.version>1.6.2</joda-time.version>
+        <joda-time.version>2.1</joda-time.version>
         <junit.version>4.10</junit.version>
         <mockito-all.version>1.9.0</mockito-all.version>
     </properties>
@@ -55,12 +55,12 @@
         <dependency>
             <groupId>com.m3</groupId>
             <artifactId>method-cache-interceptor</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.m3</groupId>
             <artifactId>memcached-client-facade</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>spy</groupId>
