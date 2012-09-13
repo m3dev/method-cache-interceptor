@@ -53,12 +53,14 @@ public class MemcachedCacheResultInterceptor extends AbstractCacheResultIntercep
         CacheResult annotation = getCacheResultAnnotation(invocation);
         if (annotation != null) {
             MemcachedClient memcached = MemcachedClientPool.getMemcachedClient(config);
-            String cacheKey = annotation.cacheKey().equals("") ? getCacheKey(invocation) : annotation.cacheKey();
+            String cacheKey = annotation.cacheKey().equals("") ? getCacheKey(invocation, isUsingRawKey()) : annotation.cacheKey();
             Object cachedObject = null;
             try {
                 cachedObject = memcached.get(cacheKey);
             } catch (Throwable t) {
-                log.debug("Failed to get a value from memcached servers. (" + cacheKey + ")", t);
+                if (log.isDebugEnabled()) {
+                    log.debug("Failed to get a value from memcached servers. (" + cacheKey + ")", t);
+                }
             }
             if (cachedObject != null) {
                 return cachedObject;
@@ -67,7 +69,9 @@ public class MemcachedCacheResultInterceptor extends AbstractCacheResultIntercep
                 try {
                     memcached.set(cacheKey, annotation.secondsToExpire(), value);
                 } catch (Throwable t) {
-                    log.debug("Failed to set a value to memcached servers. (" + cacheKey + " -> " + value + ")", t);
+                    if (log.isDebugEnabled()) {
+                        log.debug("Failed to set a value to memcached servers. (" + cacheKey + " -> " + value + ")", t);
+                    }
                 }
                 return value;
             }

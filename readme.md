@@ -9,7 +9,7 @@
   <dependency>
     <groupId>com.m3</groupId>
     <artifactId>method-cache-interceptor</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
   </dependency>
 </dependencies>
 ```

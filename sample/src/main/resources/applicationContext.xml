@@ -16,6 +16,9 @@
     <bean id="memcachedConfiguration" class="com.m3.memcached.facade.Configuration">
         <property name="namespace" value="com.example"/>
         <property name="adaptorClassName" value="com.m3.memcached.facade.adaptor.SpymemcachedAdaptor"/>
+<!--
+        <property name="adaptorClassName" value="com.m3.memcached.facade.adaptor.XmemcachedAdaptor"/>
+-->
         <property name="addressesAsString" value="127.0.0.1:11211"/>
     </bean>
     <bean id="memcachedCacheResultInterceptor" class="com.m3.methodcache.interceptor.MemcachedCacheResultInterceptor"/>
