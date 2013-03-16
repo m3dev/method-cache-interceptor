@@ -48,11 +48,23 @@ public class MemcachedCacheResultInterceptor extends AbstractCacheResultIntercep
     @Resource
     private Configuration config = getConfiguration();
 
+    private MemcachedClientPool pool;
+
+    private volatile boolean isPoolInitialized = false;
+
+    public void initializePool() throws Exception {
+        pool = new MemcachedClientPool(config);
+        isPoolInitialized = true;
+    }
+
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         CacheResult annotation = getCacheResultAnnotation(invocation);
         if (annotation != null) {
-            MemcachedClient memcached = MemcachedClientPool.getMemcachedClient(config);
+            if (!isPoolInitialized) {
+                initializePool();
+            }
+            MemcachedClient memcached = pool.getClient();
             String cacheKey = annotation.cacheKey().equals("") ? getCacheKey(invocation, isUsingRawKey()) : annotation.cacheKey();
             Object cachedObject = null;
             try {
@@ -77,6 +89,11 @@ public class MemcachedCacheResultInterceptor extends AbstractCacheResultIntercep
             }
         }
         return invocation.proceed();
+    }
+
+    public void destroy() {
+        pool.shutdown();
+        log.info("Destroyed memcached connection pool. (namespace: " + config.getNamespace() + ")");
     }
 
 }
